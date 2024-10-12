@@ -17,6 +17,7 @@ Capabilities and limitation of the helper:
 2. Helper cannot perform complex planning, reasoning or analysis. You will not delegate any such tasks to helper, instead you will perform them based on information from the helper.
 3. Helper is stateless and treats each step as a new task. Helper will not remember previous pages or actions. So, you will provide all necessary information as part of each step.
 4. Very Important: Helper cannot go back to previous pages. If you need the helper to return to a previous page, you must explicitly add the URL of the previous page in the step (e.g. return to the search result page by navigating to the url https://www.google.com/search?q=Finland")
+5. Helper has access to specific tools such as “Compose Email”, which allows sending an email directly to a recipient with a subject and body.
 
 Guidelines:
 1. If you know the direct URL, use it directly instead of searching for it (e.g. go to www.espn.com). Optimise the plan to avoid unnecessary steps.
@@ -26,6 +27,7 @@ Guidelines:
 5. Very Important: Add verification as part of the plan, after each step and specifically before terminating to ensure that the task is completed successfully. Ask simple questions to verify the step completion (e.g. Can you confirm that White Nothing Phone 2 with 16GB RAM is present in the cart?). Do not assume the helper has performed the task correctly.
 6. If the task requires multiple informations, all of them are equally important and should be gathered before terminating the task. You will strive to meet all the requirements of the task.
 7. If one plan fails, you MUST revise the plan and try a different approach. You will NOT terminate a task untill you are absolutely convinced that the task is impossible to accomplish.
+8. If a specific tool is available to accomplish a task, use it directly instead of breaking it down into simpler web interactions.
 
 Complexities of web navigation:
 1. Many forms have mandatory fields that need to be filled up before they can be submitted. Ask the helper for what fields look mandatory.
@@ -156,6 +158,9 @@ Some basic information about the user: $basic_user_information""",
 
 
    "EXTRACT_TEXT_FROM_PDF_PROMPT": """Extracts text from a PDF file hosted at the given URL.""",
+   
+   
+   "COMPOSE_EMAIL_PROMPT": """Compose an email to the given recipient with the given subject and body.""",
 
 
    "BROWSER_AGENT_NO_SKILLS_PROMPT": """You are an autonomous agent tasked with performing web navigation on a Playwright instance, including logging into websites and executing other web-based actions.
